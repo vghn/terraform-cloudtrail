@@ -1,3 +1,7 @@
+terraform {
+  required_version = ">= 0.12"
+}
+
 resource "aws_cloudtrail" "cloudtrail" {
   name                          = "CloudTrail"
   s3_bucket_name                = aws_s3_bucket.cloudtrail.id
@@ -93,4 +97,3 @@ data "aws_iam_policy_document" "cloudtrail_role" {
     resources = [aws_cloudwatch_log_group.cloudtrail.arn]
   }
 }
-
