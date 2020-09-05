@@ -1,7 +1,3 @@
-terraform {
-  required_version = ">= 0.12"
-}
-
 resource "aws_cloudtrail" "cloudtrail" {
   name                          = "CloudTrail"
   s3_bucket_name                = aws_s3_bucket.cloudtrail.id
