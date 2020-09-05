@@ -14,10 +14,10 @@ resource "random_id" "cloudtrail" {
 }
 
 resource "aws_s3_bucket" "cloudtrail" {
-  bucket = "cloudtrail-${random_id.cloudtrail.hex}"
-  policy = data.aws_iam_policy_document.cloudtrail_bucket.json
-
-  tags = var.common_tags
+  bucket        = "cloudtrail-${random_id.cloudtrail.hex}"
+  policy        = data.aws_iam_policy_document.cloudtrail_bucket.json
+  force_destroy = true
+  tags          = var.common_tags
 }
 
 data "aws_iam_policy_document" "cloudtrail_bucket" {
